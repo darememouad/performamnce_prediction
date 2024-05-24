@@ -90,21 +90,3 @@ with st.sidebar.form(key='visualization_form'):
     # Visualization button
     visualization_button = st.form_submit_button('Visualize')
 
-# Display visualizations based on user selection
-if visualization_button:
-    if selected_visualization == "Distribution of Math Scores":
-        # Display histogram of math scores
-        st.subheader("Distribution of Math Scores")
-        fig, ax = plt.subplots(figsize=(8, 6))
-        sns.histplot(data=df, x='math score', kde=True)
-        plt.xlabel("Math Score")
-        st.pyplot(fig)
-
-    elif selected_visualization == "Math Score vs. Writing Score":
-        # Display scatter plot of math score vs. writing score with gender coloring and regression line
-        st.subheader("Math Score vs. Writing Score with Gender Coloring and Regression Line")
-        fig, ax = plt.subplots(figsize=(8, 6))
-        sns.regplot(data=df, x='math score', y='writing score', scatter_kws={"color": "blue"}, line_kws={"color": "orange"})
-        plt.xlabel("Math Score")
-        plt.ylabel("Writing Score")
-        st.pyplot(fig)
